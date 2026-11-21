@@ -25,7 +25,7 @@ body{
 }
 
 form{
-    width:90%;
+    width:100%;
     max-width:500px;
     padding:30px;
     border-radius:30px;
