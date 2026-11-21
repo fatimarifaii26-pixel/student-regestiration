@@ -24,7 +24,7 @@ body{
 }
 
 form{
-    width:100%;
+    width:500px;
     max-width:1000px;
     padding:30px;
     border-radius:30px;
