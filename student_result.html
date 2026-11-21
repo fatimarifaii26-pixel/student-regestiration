@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Information</title>
+    <style>
+        table{
+            border-collapse: collapse;
+            width: 80%;
+            margin: 50px auto;
+        }
+        th,td{
+            border:1px solid black;
+            padding:10px;
+            text-align:center;
+        }
+    </style>
+</head>
+<body onload="display()">
+
+<h1 align="center">Student Information</h1>
+
+<table id="mytable"></table>
+
+<script>
+function display(){
+let table = document.getElementById("mytable");
+
+let name = localStorage.getItem("name");
+let no = localStorage.getItem("no");
+let email = localStorage.getItem("email");
+let password = localStorage.getItem("password");
+let gender = localStorage.getItem("gender");
+let birthday = localStorage.getItem("birthday");
+let course = localStorage.getItem("course");
+
+table.innerHTML = `
+<tr>
+    <th>Name</th>
+    <th>Enrollment No</th>
+    <th>Email</th>
+    <th>Password</th>
+</tr>
+
+<tr>
+    <td>${name}</td>
+    <td>${no}</td>
+    <td>${email}</td>
+    <td>${password}</td>
+</tr>
+
+<tr>
+    <th>Gender</th>
+    <th>Birthday</th>
+    <th>Course</th>
+</tr>
+
+<tr>
+    <td>${gender}</td>
+    <td>${birthday}</td>
+    <td>${course}</td>
+</tr>
+`;
+}
+</script>
+
+</body>
+</html>

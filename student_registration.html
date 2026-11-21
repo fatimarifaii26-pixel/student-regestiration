@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://i.pinimg.com/736x/06/34/6b/06346bf30b44f85dc2896ced7a5578c5.jpg">
+    <title>student registration</title>
+   <style>
+    *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background-image:url("https://i.pinimg.com/1200x/6c/92/e0/6c92e02af4887a8f75fe37c554a1563b.jpg");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+}
+
+form{
+    width:90%;
+    max-width:500px;
+    padding:30px;
+    border-radius:30px;
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,0.3);
+    box-shadow: 0 8px 32px rgba(31,38,135,.3);
+    color:#1c2556;
+}
+label{
+    display:block;
+    margin-top:12px;
+    margin-bottom:5px;
+    font-size:20px;
+    font-weight:bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+select{
+    width:100%;
+    padding:15px;
+    border:none;
+    outline:none;
+    border-radius:40px;
+    background:rgba(255,255,255,0.25);
+    backdrop-filter:blur(10px);
+    box-shadow:
+    inset 0 0 10px rgba(255,255,255,.6),
+    0 5px 15px rgba(0,0,0,.1);
+    font-size:17px;
+    margin-bottom:15px;
+}
+
+input::placeholder{
+    color:#555;
+}
+
+.gender-box{
+    display:flex;
+    gap:25px;
+    margin-bottom:20px;
+    margin-top:10px;
+}
+
+.gender-box label{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:18px;
+    font-weight:normal;
+}
+
+input[type="radio"]{
+    width:auto;
+    transform:scale(1.4);
+}
+
+.button-box{
+    margin-top:20px;
+
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.reg{
+    flex:1;
+    border:none;
+    padding:15px;
+    border-radius:40px;
+    background:linear-gradient(to right, #4eff90, #12d867);
+    color:white;
+    font-size:20px;
+    cursor:pointer;
+    box-shadow:0 0 20px #4eff90;
+}
+
+.reset{
+    flex:1;
+    border:none;
+    padding:15px;
+    border-radius:40px;
+    background:linear-gradient(to right, #ff7b7b,#ff3131);
+    color:white;
+    font-size:20px;
+    cursor:pointer;
+    box-shadow:0 0 20px #ff6b6b;
+}
+
+.reg:hover{
+    transform:scale(1.05);
+}
+
+.reset:hover{
+    transform:scale(1.05);
+}
+   </style>
+    <script>
+
+function enregist() {
+
+    let name = document.getElementById("name").value;
+    let no = document.getElementById("no").value;
+    let em = document.getElementById("em").value;
+    let pass = document.getElementById("pass").value;
+    let gen = document.querySelector('input[name="gender"]:checked')?.value;
+    let birth = document.getElementById("birth").value;
+    let cou = document.getElementById("cou").value;
+
+    if (name === "" || no === "" || pass === "" || em == "" || gen == "" || birth == "" || cou =="") {
+        alert("Please enter all information");
+        return;
+    }
+
+    localStorage.setItem("name", name);
+    localStorage.setItem("no", no);
+    localStorage.setItem("email", em);
+    localStorage.setItem("password", pass);
+    localStorage.setItem("gender", gen);
+    localStorage.setItem("birthday", birth);
+    localStorage.setItem("course", cou);
+
+
+    document.getElementById("name").value = "";
+    document.getElementById("no").value = "";
+    document.getElementById("em").value = "";
+    document.getElementById("pass").value = "";
+    document.getElementById("gen").value = "";
+    document.getElementById("birth").value = "";
+    document.getElementById("cou").value = "";
+    
+  window.location.href = "student_result.html";
+}
+
+
+
+   
+
+function suprime() {
+
+    localStorage.clear();
+
+    document.getElementById("mytable").innerHTML = `
+    <tr>
+        <td>No Data</td>
+        <td>No Data</td>
+        <td>No Data</td>
+        <td>No Data</td>
+    </tr>
+    <tr>
+        <td>No Data</td>
+        <td>No Data</td>
+        <td>No Data</td>
+    </tr>
+    `;
+}
+
+
+</script>
+
+</head>
+<body>
+    
+    <form action="student_result.html">
+<label >Student Name:</label><br>
+<input type="text" id="name" placeholder="enter your full name"><br>
+<label >Endrollment no:</label><br>
+<input type="text" id="no" placeholder="enter your Endrollment"><br>
+<label >Email:</label><br>
+<input type="email" id="em" placeholder="enter your email"><br>
+<label >password:</label><br>
+<input type="password" id="pass" placeholder="enter your password"><br>
+<label>gender:</label><br>
+<div class="gender-box">
+   <label> <input type="radio" name="gender" value="male">
+    Male
+</label>
+<label>
+    <input type="radio" name="gender" value="female">
+    Female
+</label>
+</div><br>
+<label>student date of birth:</label><br>
+<input type="date" id="birth" placeholder="dd-mm-yyyy"><br>
+<label>course:</label>
+<br><select id="cou">
+    <option value="computer" selected>computer engineering</option>
+    <option value="ai">AI engineering</option>
+    <option value="full">full stack</option>
+    <option value="ui">ui-ux</option>
+</select>
+<div class="button-box">
+<button class="reg" onclick="enregist()">enregist</button>
+<button class="reset" onclick="suprime()">reset</button>
+</div>
+
+</form>
+</body>
+</html>
