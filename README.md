@@ -17,7 +17,6 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-
     background-image:url("https://i.pinimg.com/1200x/6c/92/e0/6c92e02af4887a8f75fe37c554a1563b.jpg");
     background-size:cover;
     background-position:center;
@@ -26,7 +25,7 @@ body{
 
 form{
     width:100%;
-    max-width:500px;
+    max-width:1000px;
     padding:30px;
     border-radius:30px;
     background:rgba(255,255,255,0.15);
